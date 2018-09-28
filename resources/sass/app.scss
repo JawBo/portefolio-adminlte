@@ -1,0 +1,366 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+$shadow: #533d4a;
+.container1{
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: block;
+  position: absolute;
+  max-width: 300px;
+}
+
+.button{
+  float: left;
+  position: relative;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  color: $red;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  
+  span{
+    transform: skew(-10deg);
+    display: block;
+    float: left;
+    text-shadow: $shadow 1px 1px, $shadow 2px 2px, $shadow 3px 3px, $shadow 4px 4px;
+  }
+}
+
+h1{
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 42px;
+  margin: 0;
+  line-height: 47px;
+  letter-spacing: 2px;
+}
+
+.title{
+  transform: translateX(-50%) rotate(-10deg);
+  display: block;
+  float: left;
+  left: 50%;
+  position: relative;
+  
+  span {
+    transform: skew(-10deg);
+    display: block;
+    float: left;
+    text-shadow: $shadow 1px 1px, $shadow 2px 2px, $shadow 3px 3px, $shadow 4px 4px, $shadow 5px 5px, $shadow 6px 6px;
+    min-width: 10px;
+    min-height: 10px;
+    position: relative;
+  }
+}
+
+.title{
+  &:nth-child(1){
+    color: $red;
+  }
+  &:nth-child(2){
+    color: $green;
+  }
+  &:nth-child(3){
+    color: $yellow;
+  }
+}
+
+.imdoe{
+  background-image: url('~/img/head.jpg');
+  background-size: 100%;
+  height: 700px;
+  background-position: center;
+  filter: brightness(50%);
+  position: relative;
+}
+.navDiv{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 999;
+}
+#jsText{
+  
+  color:white;
+  font-size: 50px;
+}
+.navigbar{
+  // background: rgba(0, 0, 0, 0.568);
+  background: transparent;
+  padding-top: 20px;  
+  width: 90%;
+  
+  font-weight: 900;
+  font-size: 16px;
+  display: inline-flex;
+  .divSpan
+  {
+  position: absolute;
+  left: 15%;
+  a
+  {
+    color: grey;
+  }
+  a:hover
+  {
+    text-decoration-line: none
+  }
+  }
+  .divUL
+  {
+    position: absolute;
+    right: 15%;
+    a
+    {
+      color: grey;
+    }
+    a:hover
+  {
+    text-decoration-line: none
+  }
+  }
+  ul
+    {
+      margin-left: 450px;
+      display: flex;
+    }
+    li 
+      {
+        margin: 0 10px;
+        list-style-type: none;
+      }
+}
+.divDoe{
+  position: absolute;
+  top: 55%;
+  right: 44%;
+  text-align: center;
+  p
+  {
+    color: black;
+    font-size: 20px;
+    background: #ffd603;
+    padding: 3px 10px;
+  }
+  a{
+    color: grey;
+    font-size: 25px;
+    margin: 5px;
+  }
+  a:hover{
+    color: rgb(204, 60, 7);
+  }
+}
+
+.about{
+  text-align: center;
+
+  h2{
+    margin-top: 50px;
+    color: yellow;
+    font-weight: bolder;
+  }
+
+}
+.test {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em 2em;
+  
+  // Using inset box-shadow instead of border for sizing simplicity
+  box-shadow: inset 0 0 0 2px $red;
+  color: $red;
+  font-size: inherit;
+  font-weight: 700;
+
+  // Required, since we're setting absolute on pseudo-elements
+  position: relative;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+.spin {
+  width: 5em;
+  height: 5em;
+  padding: 0;
+  
+  &:hover {
+    color: $blue;
+  }
+
+  &::before,
+  &::after {
+    top: 0;
+    left: 0;
+  }
+
+  &::before {
+    border: 2px solid transparent; // We're animating border-color again
+  }
+
+  &:hover::before {
+    border-top-color: $blue; // Show borders
+    border-right-color: $blue;
+    border-bottom-color: $blue;
+
+    transition:
+      border-top-color 0.15s linear, // Stagger border appearances
+      border-right-color 0.15s linear 0.10s,
+      border-bottom-color 0.15s linear 0.20s;
+  }
+
+  &::after {
+    border: 0 solid transparent; // Makes border thinner at the edges? I forgot what I was doing
+  }
+
+  &:hover::after {
+    border-top: 2px solid $blue; // Shows border
+    border-left-width: 2px; // Solid edges, invisible borders
+    border-right-width: 2px; // Solid edges, invisible borders
+    transform: rotate(270deg); // Rotate around circle
+    transition:
+      transform 0.4s linear 0s,
+      border-left-width 0s linear 0.35s; // Solid edge post-rotation
+  }
+}
+
+
+
+.skills
+{
+  background: #fafafa;
+  border: 1px solid #ffd603;
+  padding: 50px;
+  margin-bottom: 55px;
+  h4{
+    font-weight: bolder;
+  }
+  .logo
+  {
+    margin-bottom: 45px;
+  }
+  i{
+    font-size: 40px;
+    color: white;
+    background: #ffd603;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    line-height: 100px;
+  }
+  i:hover{
+    color: black;
+    font-size: 50px;
+  }
+
+
+}
+.jsbody
+{
+  background-image: url('~/img/head.jpg');
+  background-size: 100%;
+  height: 300px;
+  background-position: center;
+  
+  position: relative;
+  
+}
+.jsfilter
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.562);
+}
+.jscol{
+  
+}
+.jsnumber
+{ 
+
+  text-align: center;
+  color:white;
+  margin-top: 20px;
+  padding-top: 50px;
+  i
+  {
+    color: #ffd603;
+    font-size: 30px;
+  }
+  p
+  {
+    font-size: 40px;
+    margin-bottom: 0px;
+  }
+
+}
+.carouselArea
+{
+background: #533d4a;
+
+}
+.imgcontact
+  {
+    border-radius: 35px;
+    img
+    {
+      border: 3px solid rgb(146, 146, 146);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    }
+  }
+.contact
+{
+  
+  input 
+  {
+    border:none;
+    border-radius: 5px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  #nameInp
+  {
+    margin-right:5px; 
+    width: 40%;
+  }
+  #mailInp
+  {
+    width: 50%;
+    margin-left: 35px;
+  }  
+  textarea{  
+    border: none;
+    border-bottom: 1px solid grey;
+  
+  }
+}
+
