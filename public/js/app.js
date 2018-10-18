@@ -13888,7 +13888,8 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(50);
+__webpack_require__(51);
+module.exports = __webpack_require__(52);
 
 
 /***/ }),
@@ -13909,8 +13910,9 @@ __webpack_require__(39);
 __webpack_require__(40);
 __webpack_require__(41);
 __webpack_require__(42);
+__webpack_require__(43);
 
-window.Vue = __webpack_require__(43);
+window.Vue = __webpack_require__(44);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13918,7 +13920,7 @@ window.Vue = __webpack_require__(43);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(46));
+Vue.component('example-component', __webpack_require__(47));
 
 var app = new Vue({
   el: '#app'
@@ -35994,27 +35996,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 !function (t) {
-  function e(e, n, i, r) {
-    var a = e.text(),
-        c = a.split(n),
-        s = "";c.length && (t(c).each(function (t, e) {
-      s += '<span class="' + i + (t + 1) + '" aria-hidden="true">' + e + "</span>" + r;
-    }), e.attr("aria-label", a).empty().append(s));
-  }var n = { init: function init() {
-      return this.each(function () {
-        e(t(this), "", "char", "");
-      });
-    }, words: function words() {
-      return this.each(function () {
-        e(t(this), " ", "word", " ");
-      });
-    }, lines: function lines() {
-      return this.each(function () {
-        var n = "eefec303079ad17405c889e092e105b0";e(t(this).children("br").replaceWith(n).end(), n, "line", "");
-      });
-    } };t.fn.lettering = function (e) {
-    return e && n[e] ? n[e].apply(this, [].slice.call(arguments, 1)) : "letters" !== e && e ? (t.error("Method " + e + " does not exist on jQuery.lettering"), this) : n.init.apply(this, [].slice.call(arguments, 0));
-  };
+    function e(e, n, i, r) {
+        var a = e.text(),
+            c = a.split(n),
+            s = "";
+        c.length && (t(c).each(function (t, e) {
+            s += '<span class="' + i + (t + 1) + '" aria-hidden="true">' + e + "</span>" + r;
+        }), e.attr("aria-label", a).empty().append(s));
+    }
+    var n = {
+        init: function init() {
+            return this.each(function () {
+                e(t(this), "", "char", "");
+            });
+        },
+        words: function words() {
+            return this.each(function () {
+                e(t(this), " ", "word", " ");
+            });
+        },
+        lines: function lines() {
+            return this.each(function () {
+                var n = "eefec303079ad17405c889e092e105b0";
+                e(t(this).children("br").replaceWith(n).end(), n, "line", "");
+            });
+        }
+    };
+    t.fn.lettering = function (e) {
+        return e && n[e] ? n[e].apply(this, [].slice.call(arguments, 1)) : "letters" !== e && e ? (t.error("Method " + e + " does not exist on jQuery.lettering"), this) : n.init.apply(this, [].slice.call(arguments, 0));
+    };
 }(jQuery);
 
 /***/ }),
@@ -38135,25 +38145,64 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
 /* 41 */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
-  $(".title").lettering();
-  $(".button").lettering();
-});
+var TxtRotate = function TxtRotate(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
 
-$(document).ready(function () {
-  animation();
-}, 1000);
+TxtRotate.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
 
-$('.button').click(function () {
-  animation();
-});
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
 
-function animation() {
-  var title1 = new TimelineMax();
-  title1.to(".button", 0, { visibility: 'hidden', opacity: 0 });
-  title1.staggerFromTo(".title span", 0.5, { ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80 }, { ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0 }, 0.05);
-  title1.to(".button", 0.2, { visibility: 'visible', opacity: 1 });
-}
+  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) {
+    delta /= 2;
+  }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function () {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
 
 /***/ }),
 /* 42 */
@@ -38173,6 +38222,15 @@ $('.count').each(function () {
 
 /***/ }),
 /* 43 */
+/***/ (function(module, exports) {
+
+$(window).scroll(function () {
+    $('.divSpan').toggleClass('scrolled', $(this).scrollTop() > 600);
+    $('.navUl').toggleClass('scrolled', $(this).scrollTop() > 600);
+});
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49135,10 +49193,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(44).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(45).setImmediate))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -49194,7 +49252,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(45);
+__webpack_require__(46);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -49208,7 +49266,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -49401,15 +49459,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(47)
+var normalizeComponent = __webpack_require__(48)
 /* script */
-var __vue_script__ = __webpack_require__(48)
+var __vue_script__ = __webpack_require__(49)
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49448,7 +49506,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -49557,7 +49615,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49586,7 +49644,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49629,7 +49687,13 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 52 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

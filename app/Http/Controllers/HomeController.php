@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
+use Illuminate\Support\Facades\Storage; 
+use App\Http\Requests\StoreComments;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $contenuComments = Comment::all();
+        return view('home',compact('contenuComments'));
+        
     }
 }

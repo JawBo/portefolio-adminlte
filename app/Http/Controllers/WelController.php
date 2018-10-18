@@ -7,19 +7,14 @@ use App\Comment;
 use Illuminate\Support\Facades\Storage; 
 use App\Http\Requests\StoreComments;
 
-class WelController extends Controller
-{
+class WelController extends Controller{
+    
     public function index()
     {
         $contenuComments = Comment::all();
         return view('welcome',compact('contenuComments'));
     }
-    public function login()
-    {
-        return view('vendor/adminlte/login');
-    }
-    public function create(Request $request)
-    {
+    public function create(Request $request){
         $path = $request->file('image')->store('public');
         $item = new Comment;
         $item->name=$request->name;
@@ -29,4 +24,6 @@ class WelController extends Controller
         $item->save();
         return redirect ('/');
     }
+
 }
+

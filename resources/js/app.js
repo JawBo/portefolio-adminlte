@@ -12,6 +12,7 @@ require('./jquery.lettering.min.js')
 require('./TweenMax.min.js')
 require('./header');
 require('./main');
+require('./nav');
 
 window.Vue = require('vue');
 
