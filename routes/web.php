@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelController@index');
+Route::get('/', 'WelControlle r@index');
 
 Auth::routes();
 

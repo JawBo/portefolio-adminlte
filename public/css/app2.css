@@ -15529,16 +15529,13 @@ a.text-dark:focus {
   }
 }
 
-body {
-  font-family: "Lobster";
-}
-
 .divPen {
   position: absolute;
   top: 42%;
-  right: 36%;
+  right: 65%;
   text-align: center;
   color: #fafafa;
+  position: fixed;
 }
 
 .divPen h1,
@@ -15559,8 +15556,6 @@ body {
 }
 
 .navDiv {
-  position: fixed;
-  top: 0;
   width: 100%;
   text-align: center;
   z-index: 999;
@@ -15585,13 +15580,12 @@ body {
 .navigbar .divSpan {
   position: absolute;
   left: 15%;
-  text-shadow: 0px -3px 7px black;
   -webkit-transition: 700ms ease;
   transition: 700ms ease;
 }
 
 .navigbar .divSpan a {
-  color: white;
+  color: grey;
 }
 
 .navigbar .divSpan a:hover {
@@ -15605,7 +15599,7 @@ body {
 }
 
 .navigbar .divUL a {
-  color: white;
+  color: grey;
 }
 
 .navigbar .divUL a:hover {
@@ -15616,7 +15610,6 @@ body {
 .navigbar li {
   margin: 0 10px;
   list-style-type: none;
-  text-shadow: 0px -3px 7px black;
 }
 
 .navUl {
@@ -15626,24 +15619,21 @@ body {
   display: flex;
   -webkit-transition: 700ms ease;
   transition: 700ms ease;
-  text-shadow: 0px -3px 7px black;
 }
 
 .divSpan.scrolled span a {
   padding: 1px 5px;
-  color: #000000;
-  text-shadow: 0px -3px 7px black;
+  color: #30bb47;
 }
 
 .navUl.scrolled li a {
-  color: #000000;
-  text-shadow: 0px -3px 7px black;
+  color: #332020;
 }
 
 .divDoe {
   position: absolute;
-  top: 20%;
-  right: 43%;
+  top: 55%;
+  right: 44%;
   text-align: center;
 }
 
@@ -15655,13 +15645,13 @@ body {
 }
 
 .divDoe a {
-  color: white;
-  font-size: 40px;
-  padding: 15px;
+  color: grey;
+  font-size: 25px;
+  margin: 5px;
 }
 
 .divDoe a:hover {
-  color: #ffd603;
+  color: #cc3c07;
 }
 
 .about {
@@ -15669,10 +15659,79 @@ body {
 }
 
 .about h2 {
-  padding-top: 50px;
+  margin-top: 50px;
   color: yellow;
   font-weight: bolder;
-  text-shadow: -1px 1px 3px black;
+}
+
+.test {
+  background: none;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 1em;
+  padding: 1em 2em;
+  -webkit-box-shadow: inset 0 0 0 2px #e3342f;
+          box-shadow: inset 0 0 0 2px #e3342f;
+  color: #e3342f;
+  font-size: inherit;
+  font-weight: 700;
+  position: relative;
+  vertical-align: middle;
+}
+
+.test::before,
+.test::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.spin {
+  width: 5em;
+  height: 5em;
+  padding: 0;
+}
+
+.spin:hover {
+  color: #3490dc;
+}
+
+.spin::before,
+.spin::after {
+  top: 0;
+  left: 0;
+}
+
+.spin::before {
+  border: 2px solid transparent;
+}
+
+.spin:hover::before {
+  border-top-color: #3490dc;
+  border-right-color: #3490dc;
+  border-bottom-color: #3490dc;
+  -webkit-transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+  transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+}
+
+.spin::after {
+  border: 0 solid transparent;
+}
+
+.spin:hover::after {
+  border-top: 2px solid #3490dc;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  -webkit-transition: border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+  transition: border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+  transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+  transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
 }
 
 .skills {
@@ -15682,8 +15741,6 @@ body {
           box-shadow: -3px 4px 20px 1px black;
   padding: 50px;
   margin-bottom: 55px;
-  -webkit-transition: 300ms;
-  transition: 300ms;
 }
 
 .skills h4 {
@@ -15711,14 +15768,8 @@ body {
   font-size: 50px;
 }
 
-.skills:hover {
-  -webkit-transform: scaleX(1.1) scaleY(1.1);
-          transform: scaleX(1.1) scaleY(1.1);
-}
-
 .jsbody {
   background: url("/img/head.jpg") center fixed;
-  background-repeat: no-repeat;
   background-size: 100%;
   height: 300px;
   position: relative;
@@ -15748,19 +15799,8 @@ body {
   margin-bottom: 0px;
 }
 
-#commentsSection {
-  background: #6b6d7066;
-  text-align: center;
-}
-
-#commentsSection h2 {
-  padding-top: 50px;
-  color: yellow;
-  font-weight: bolder;
-  text-shadow: -1px 1px 3px black;
-}
-
 .carouselArea {
+  background: #533d4a;
   height: 500px;
 }
 
@@ -15803,8 +15843,10 @@ body {
   border-radius: 25px;
   margin: 0 35px;
   padding: 15px 3px;
-  -webkit-box-shadow: 0px 2px 20px 2px black;
-          box-shadow: 0px 2px 20px 2px black;
+  -webkit-box-shadow: 0 0 black;
+          box-shadow: 0 0 black;
+  -webkit-box-shadow: 11px 20px 20px black;
+          box-shadow: 11px 20px 20px black;
 }
 
 .contact input {
