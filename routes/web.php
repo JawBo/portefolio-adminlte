@@ -11,11 +11,21 @@
 |
 */
 
-Route::get('/', 'WelControlle r@index');
+Route::get('/', 'WelController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::post('/create', 'WelController@create' );
+
+Route::get('/admin/comments', 'AdminController@comment');
+
+Route::get('/admin/skills', 'AdminController@skill');
+Route::get('/admin/about', 'AdminController@about');
+
+
+Route::post('/admin/skill/{id}/change', 'AdminController@changeSk');
+Route::post('/admin/about/{id}/change','AdminController@changeAb');
 
 

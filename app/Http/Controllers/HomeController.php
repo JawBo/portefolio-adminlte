@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Skill;
+use App\About;
+
 use Illuminate\Support\Facades\Storage; 
 use App\Http\Requests\StoreComments;
 
@@ -28,7 +31,9 @@ class HomeController extends Controller
     public function index()
     {
         $contenuComments = Comment::all();
-        return view('home',compact('contenuComments'));
+        $contenuSkills = Skill::all();
+        $contenuAbout = About::all();
+        return view('home',compact('contenuComments','contenuSkills','contenuAbout'));
         
     }
 }

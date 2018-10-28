@@ -16,6 +16,10 @@
     @include('partials/skills')
     @include('partials/comments')
     @include('partials/footer')
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
     <script src="js/app.js"></script>
+
     </body>
 @stop

@@ -1,37 +1,22 @@
-<section class="about">
+<section class="about" id="sectAbout">
 
-    <h2>A Story About Me</h2>
+    <h2>About Me</h2>
     <span>Lorem ipsum dolor sit consectetur elit.</span>
-
+    <hr>
     <section class="container">
         <section class="row">
+        @foreach ($contenuAbout as $item)
         <div class="col-sm-4 my-3">
-            <div class="skills ">
-                <div class=" logo">
-                    <i class="fab fa-wordpress"></i>
+                <div class="skills ">
+                    <div class="logo">
+                        <i class="{{$item->icone}}"></i>
+                    </div>
+                    <h4>{{$item->about}}</h4>
+                    <p>{{$item->description}}</p>
                 </div>
-                <h4>Web Development</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eius? </p>
             </div>
-        </div>
-        <div class="col-sm-4 my-3">
-            <div class="skills">
-                <div class="logo">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <h4>Internet Marketing</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eius? </p>
-            </div>
-        </div>
-        <div class="col-sm-4 my-3">
-            <div class="skills">
-                <div class="logo">
-                    <i class="fab fa-connectdevelop"></i>
-                </div>
-                <h4>Voice Recording</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eius? </p>
-            </div>
-        </div>
+        @endforeach
+    
         </section>
     </section>
 

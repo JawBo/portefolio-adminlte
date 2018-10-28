@@ -1,5 +1,15 @@
 <section id="commentsSection">
-    <h2>Comments</h2>
+    
+    <h2>Leave Your Comments Here</h2>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li id="errorComment">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <section class="container my-5">
         <section class="row">
 
@@ -12,7 +22,7 @@
                         <br>
                         <textarea class="form-control" name="comment" placeholder="Your Comment" cols="30" rows="10"></textarea>
                         <br>
-                        <input type="file" name="image">
+                        <input  type="file" name="image">
                         <button type="submit">Envoyer</button>
                     </div>
             </div>
@@ -23,10 +33,10 @@
 
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            {{-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             @foreach($contenuComments as $key => $item)
                             <li data-target="#carouselExampleIndicators" data-slide-to="{{$key+1}}"></li>
-                            @endforeach
+                            @endforeach --}}
 
                         </ol>
                         <div class="carousel-inner">
@@ -71,16 +81,16 @@
                             @endif
                             @endforeach
 
-                            <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button"
+                            {{-- <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button"
                                 data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-                                <span class="sr-only">Previous</span>
+                                <span class="carousel-control-prev-icon bg-dark p-3" aria-hidden="false"></span>
+                                <span class="sr-only ">Previous</span>
                             </a>
                             <a class="carousel-control-next " href="#carouselExampleIndicators" role="button"
                                 data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                                <span class="carousel-control-next-icon bg-dark p-3" aria-hidden="false"></span>
                                 <span class="sr-only">Next</span>
-                            </a>
+                            </a> --}}
                         </div>
 
                     </div>

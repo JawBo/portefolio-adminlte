@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+    @include('partials/nav')
     @include('partials/head')
     @include('partials/about')
     @include('partials/skills')
@@ -20,6 +22,7 @@
 
 
     <script src="js/app.js"></script>
+    <script src="node_modules/scrollreveal/dist/scrollreveal.js"></script>
 </body>
 
 </html>

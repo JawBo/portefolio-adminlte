@@ -2,11 +2,13 @@
 @import "node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import 'variables';
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -30,7 +32,7 @@ h1 { font-size: 4.5em;
 }
 .imdoe{
   background: linear-gradient(rgba(0,0,0,0.815),rgba(0,0,0,0.45)), url('~/img/iss.jpg') no-repeat bottom/100% fixed  !important;
-  height: 90vh;
+  height: 100vh;
   position: relative;  
 }
 .navDiv{
@@ -58,12 +60,15 @@ h1 { font-size: 4.5em;
   .divSpan
   {
   position: absolute;
+  background: black;
   left: 15%;
   text-shadow: 0px -3px 7px black;
   transition: 700ms ease;
+  
   a
   {
     color: white;
+    padding: 1px 5px;
   }
   a:hover
   {
@@ -96,8 +101,11 @@ h1 { font-size: 4.5em;
     display: flex;
     transition: 700ms ease;
     text-shadow: 0px -3px 7px black;
+    background: black;
 }
 .divSpan.scrolled{
+
+  background-color: white;
   span a {
   padding: 1px 5px;  
   color: #000000;
@@ -106,6 +114,7 @@ h1 { font-size: 4.5em;
 }
 .navUl.scrolled{
   
+  background-color: white;
   li a{
     color: #000000;
     text-shadow: 0px -3px 7px black;
@@ -136,88 +145,29 @@ h1 { font-size: 4.5em;
 
 .about{
   text-align: center;
+  height: 100vh;
 
   h2{
+    font-size: 50px;
     padding-top: 50px;
     color: yellow;
     font-weight: bolder;
     text-shadow: -1px 1px 3px black;
+    margin-top: 5vh
+  }
+  span{
+    font-weight: 900;
+    margin-top: 5vh
+  }
+  hr{
+    width: 50%;
+    margin: 0 auto;
+  }
+  section:nth-child(1){
+    margin-top: 18vh
   }
 
 }
-// .test {
-//   background: none;
-//   border: 0;
-//   box-sizing: border-box;
-//   margin: 1em;
-//   padding: 1em 2em;
-  
-//   // Using inset box-shadow instead of border for sizing simplicity
-//   box-shadow: inset 0 0 0 2px $red;
-//   color: $red;
-//   font-size: inherit;
-//   font-weight: 700;
-
-//   // Required, since we're setting absolute on pseudo-elements
-//   position: relative;
-//   vertical-align: middle;
-
-//   &::before,
-//   &::after {
-//     box-sizing: inherit;
-//     content: '';
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-// .spin {
-//   width: 5em;
-//   height: 5em;
-//   padding: 0;
-  
-//   &:hover {
-//     color: $blue;
-//   }
-
-//   &::before,
-//   &::after {
-//     top: 0;
-//     left: 0;
-//   }
-
-//   &::before {
-//     border: 2px solid transparent; // We're animating border-color again
-//   }
-
-//   &:hover::before {
-//     border-top-color: $blue; // Show borders
-//     border-right-color: $blue;
-//     border-bottom-color: $blue;
-
-//     transition:
-//       border-top-color 0.15s linear, // Stagger border appearances
-//       border-right-color 0.15s linear 0.10s,
-//       border-bottom-color 0.15s linear 0.20s;
-//   }
-
-//   &::after {
-//     border: 0 solid transparent; // Makes border thinner at the edges? I forgot what I was doing
-//   }
-
-//   &:hover::after {
-//     border-top: 2px solid $blue; // Shows border
-//     border-left-width: 2px; // Solid edges, invisible borders
-//     border-right-width: 2px; // Solid edges, invisible borders
-//     transform: rotate(270deg); // Rotate around circle
-//     transition:
-//       transform 0.4s linear 0s,
-//       border-left-width 0s linear 0.35s; // Solid edge post-rotation
-//   }
-// }
-
-
-
 .skills
 {
   background: #fafafa;
@@ -250,7 +200,7 @@ h1 { font-size: 4.5em;
 transition: 300ms;
 }
 .skills:hover{
-  transform: scaleX(1.1)scaleY(1.1);
+  transform: scaleX(1.6)scaleY(1.6);
 }
 
 .jsbody
@@ -287,6 +237,9 @@ transition: 300ms;
   }
 }
 #commentsSection{
+  li{
+    list-style-type: none;
+  }
   background: #6b6d7066;
   text-align: center;
   h2{
@@ -328,7 +281,7 @@ height: 500px;
 .commentary
 {
   margin: 25px 100px;
-  font-size: 15px;
+  font-size: 25px;
 }
 .email
 {
@@ -345,13 +298,23 @@ height: 500px;
 .contact
 {
   
-  input 
+  input:nth-child(1)
   {
     border:none;
     border-radius: 5px;
     border-bottom: 1px solid grey;
     margin-bottom: 10px;
     padding: 10px;
+    box-shadow: 0px 0px 10px 0px black;
+  }
+  input:nth-child(2)
+  {
+    border:none;
+    border-radius: 5px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px black;
   }
   #nameInp
   {
@@ -366,7 +329,11 @@ height: 500px;
   textarea{  
     border: none;
     border-bottom: 1px solid grey;
+    box-shadow: 0px 0px 10px 0px black;
   
+  }
+  button{
+    box-shadow: 0px 0px 10px 0px black;
   }
 }
 

@@ -14,10 +14,10 @@ class CommentsSeeder extends Seeder
         DB::table('comments')->insert([
 
             [
-                "name"=>"test",
-                "mail"=>"test@m.fr",
-                "image"=>"public/eQxgt8Qmb3AzJtNGVSQ242NEfpHubOCEPHiKAH4N.jpeg",
-                "comment"=> "t'es un test"
+                "name"=>"Test",
+                "mail"=>"test@mail.fr",
+                "image"=>"5865-linux-online-inc-s-.png",
+                "comment"=> "Ceci est un texte de test"
             ]
 
         ]);
