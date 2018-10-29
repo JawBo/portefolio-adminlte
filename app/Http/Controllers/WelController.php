@@ -7,8 +7,10 @@ use App\Comment;
 use App\Skill;
 use App\About;
 
+use Validator;
+
 use Illuminate\Support\Facades\Storage; 
-use App\Http\Requests\StoreComments;
+use App\Http\Requests\CommentsRequest;
 
 class WelController extends Controller{
     
@@ -20,7 +22,7 @@ class WelController extends Controller{
         return view('welcome',compact('contenuComments','contenuSkills','contenuAbout'));
     }
    
-    public function create(StoreComments $request){
+    public function create(CommentsRequest $request){
         $path = $request->file('image')->store('public');
         $item = new Comment;
         $item->name=$request->name;
@@ -29,8 +31,7 @@ class WelController extends Controller{
         $item->image=$path;
         $item->save();
         return redirect ('/#commentsSection');
-        // $url = $this->redirector->getUrlGenerator();
-        // return $url->previous() . '#commentsSection';
+        
     }
 
 }

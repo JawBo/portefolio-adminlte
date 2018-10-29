@@ -20,7 +20,7 @@
                         <input type="text" name="name" id="nameInp" placeholder="Your Name">
                         <input type="mail" name="mail" id="mailInp" placeholder="YourMail@mail.Com">
                         <br>
-                        <textarea class="form-control" name="comment" placeholder="Your Comment" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="comment" placeholder="Your Comment (max : 100 caractères ) " cols="30" rows="10"></textarea>
                         <br>
                         <input  type="file" name="image">
                         <button type="submit">Envoyer</button>
@@ -81,7 +81,9 @@
                             @endif
                             @endforeach
 
-                            {{-- <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button"
+                            
+
+                            <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button"
                                 data-slide="prev">
                                 <span class="carousel-control-prev-icon bg-dark p-3" aria-hidden="false"></span>
                                 <span class="sr-only ">Previous</span>
@@ -90,7 +92,7 @@
                                 data-slide="next">
                                 <span class="carousel-control-next-icon bg-dark p-3" aria-hidden="false"></span>
                                 <span class="sr-only">Next</span>
-                            </a> --}}
+                            </a>
                         </div>
 
                     </div>

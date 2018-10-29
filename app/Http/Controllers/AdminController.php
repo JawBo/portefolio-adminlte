@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function comment()
     {
         $contenuComments = Comment::all();
-        return view('partials/adminComment',compact('contenuComments'));
+        return view('adminComments',compact('contenuComments'));
     }
     public function skill()
     {
@@ -47,8 +47,12 @@ class AdminController extends Controller
         $item->about = $request->about;
         $item->description = $request->description;
         $item->save();
-        return redirect ('/admin/about');
-
-
+        return redirect ('/admin/about');   
+    }
+    public function deleteComment(Request $request, $id)
+    {
+        $item = Comment::find($id);
+        $item->delete();
+        return redirect ('/admin/comments');
     }
 }

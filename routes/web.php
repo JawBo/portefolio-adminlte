@@ -23,9 +23,12 @@ Route::get('/admin/comments', 'AdminController@comment');
 
 Route::get('/admin/skills', 'AdminController@skill');
 Route::get('/admin/about', 'AdminController@about');
+Route::get('/admin/comments', 'AdminController@comment');
 
 
 Route::post('/admin/skill/{id}/change', 'AdminController@changeSk');
 Route::post('/admin/about/{id}/change','AdminController@changeAb');
+Route::post('/admin/comment/{id}/delete','AdminController@deleteComment');
+
 
 

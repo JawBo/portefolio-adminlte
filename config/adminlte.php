@@ -132,6 +132,14 @@ return [
             'url'  => '/admin/skills',
             'icon' => 'eye',
         ],
+        [
+            'text' => 'Comments',
+            'url'  => '/admin/comments',
+            'icon' => 'commenting',
+
+
+
+        ],
             // [
         //     'text'    => 'Multilevel',
         //     'icon'    => 'share',

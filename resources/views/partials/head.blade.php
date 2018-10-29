@@ -11,6 +11,6 @@
       <a href="http://www.instagram.fr"><i class="fab fa-instagram"></i></a>
       <a href="http://www.linkedin.fr"><i class="fab fa-linkedin"></i></a>
     </div>
-0000
+
     
 </section>

@@ -1,5 +1,6 @@
 <div class="navDiv">
   <nav class="navigbar">
+        
       <div class="divSpan">
           <span><a href=""> Portefolio </a></span>
       </div>
