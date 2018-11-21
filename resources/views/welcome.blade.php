@@ -16,6 +16,7 @@
     @include('partials/about')
     @include('partials/skills')
     @include('partials/comments')
+    @include('partials/contact')
     @include('partials/footer')
 
   

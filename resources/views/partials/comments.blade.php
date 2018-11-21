@@ -1,4 +1,4 @@
-<section id="commentsSection">
+<section id="commentsSection" class="p-2">
     
     <h2>Leave Your Comments Here</h2>
     @if ($errors->any())
@@ -20,7 +20,7 @@
                         <input type="text" name="name" id="nameInp" placeholder="Your Name">
                         <input type="mail" name="mail" id="mailInp" placeholder="YourMail@mail.Com">
                         <br>
-                        <textarea class="form-control" name="comment" placeholder="Your Comment (max : 100 caractères ) " cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="comment" placeholder="Your Comment (max : 255 caractères ) " cols="30" rows="10"></textarea>
                         <br>
                         <input  type="file" name="image">
                         <button type="submit">Envoyer</button>

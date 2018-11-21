@@ -30,5 +30,7 @@ Route::post('/admin/skill/{id}/change', 'AdminController@changeSk');
 Route::post('/admin/about/{id}/change','AdminController@changeAb');
 Route::post('/admin/comment/{id}/delete','AdminController@deleteComment');
 
+Route::post('/contact','ContactController@create');
+
 
 

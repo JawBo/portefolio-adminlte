@@ -15,6 +15,7 @@
     @include('partials/about')
     @include('partials/skills')
     @include('partials/comments')
+    @include('partials/contact')    
     @include('partials/footer')
     <script src="https://unpkg.com/scrollreveal@4"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>

@@ -37,10 +37,10 @@
                                 </select>
                             </div>
                             <div class="p-3">
-                                <input type="text" name="amount" id="" placeholder="{{$item->amount}}">
+                                <input type="text" name="amount" value="{{old('amount')}}" id="" placeholder="{{$item->amount}}">
                             </div>
                             <div class="p-3">
-                                <input type="text" name="skill" id="" placeholder="{{$item->skill}}">
+                                <input type="text" name="skill" value="{{old('skill')}}" id="" placeholder="{{$item->skill}}">
                             </div>
 
                     </div>

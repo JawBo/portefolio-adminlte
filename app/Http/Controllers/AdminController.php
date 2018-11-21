@@ -8,8 +8,11 @@ use App\Skill;
 use App\Icone;
 use App\About;
 
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Storage;
+
 use App\Http\Requests\StoreComments;
+use App\Http\Requests\SkillsRequest;
+use App\Http\Requests\AboutRequest;
 
 class AdminController extends Controller
 {
@@ -31,7 +34,7 @@ class AdminController extends Controller
         return view('adminAbouts',compact('contenuAbout','contenuIcones'));
     }
 
-    public function changeSk(Request $request, $id)
+    public function changeSk(SkillsRequest $request, $id)
     {
         $item = Skill::find($id);
         $item->icone = $request->icone;
@@ -40,7 +43,7 @@ class AdminController extends Controller
         $item ->save();
         return redirect ('/admin/skills');
     }
-    public function changeAb(Request $request, $id)
+    public function changeAb(AboutRequest $request, $id)
     {
         $item = About::find($id);
         $item->icone = $request->icone;

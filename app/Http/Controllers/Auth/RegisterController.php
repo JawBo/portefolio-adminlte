@@ -64,8 +64,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        auth()->login($user);
-        \Mail::to($data->email)->send(new WelcomeMail);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -73,10 +71,5 @@ class RegisterController extends Controller
             ]);
             
     }
-    public function store(){
-
-
-
-        
-    }
+    
 }
